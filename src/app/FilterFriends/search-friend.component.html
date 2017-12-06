@@ -1,0 +1,62 @@
+<div class="container">
+
+
+    <div class="row">
+        <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">FRIENDS LIST</h3>
+                <div class="pull-right">
+                    Click To Search
+                    <button class="btn btn-info " (click)="showFilter()">
+                        <span class="glyphicon glyphicon-search"></span>Search</button>
+                </div>
+            </div>
+            <div class="table-responsive" *ngIf='showFilters'>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="text" class="form-control" placeholder="Search By Company Name" [(ngModel)]='companyName'>
+                            </th>
+                            <th>
+                                <input type="text" class="form-control" placeholder="Search By College Name" [(ngModel)]='collegeName'>
+                            </th>
+                            <th>
+                                <input type="text" class="form-control" placeholder="Search By Home Town" [(ngModel)]='homeTown'>
+                            </th>
+
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>
+
+            <div class="">
+                <table class="table">
+                    <thead id="Details">
+                        <tr>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>ContactNo</th>
+                            <th>MailId</th>
+                            <th>CompanyName</th>
+                            <th>HomeTown</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let friend of friends | friendFilter:companyName:collegeName:homeTown ">
+                            <td>{{friend.firstName}}</td>
+                            <td>{{friend.lastName}}</td>
+                            <td>{{friend.contactNumber}}</td>
+                            <td>{{friend.mailId}}</td>
+                            <td>{{friend.companyName}}</td>
+                            <td>{{friend.homeTown}}</td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

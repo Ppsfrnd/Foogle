@@ -1,0 +1,194 @@
+<div class="buttons">
+    <a class="btn btn-info a-btn-slide-text" (click)='showAddForm()'>
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <span>
+            <strong>Add Details</strong>
+        </span>
+    </a>
+  
+    <a class="btn btn-info a-btn-slide-text" (click)='showViewForm()'>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        <span>
+            <strong>Modify Details</strong>
+        </span>
+    </a>
+
+</div>
+<div class="panel panel-primary " *ngIf='showForm'>
+    <div class=" panel-heading">Enter Your Details
+    </div>
+    <div class="panel-body">
+        <div class="AddForm">
+            <form class="form-horizontal" #formCtrl="ngForm">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">First Name</label>
+                        <div class="col-md-4">
+                            <input id="textinput" name="firstName" type="text" class="form-control input-md" [(ngModel)]='firstName' required pattern="[a-zA-Z ]+"
+                                #fname="ngModel">
+                            <div [hidden]="fname.valid || fname.pristine" class="alert alert-danger">
+                                <div [hidden]="!fname.hasError('required')">First Name is required</div>
+                                <div [hidden]="!fname.hasError('pattern')">Only alphabets allowed</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">Last Name</label>
+                        <div class="col-md-4">
+                            <input id="textinput" name="lastName" type="text" class="form-control input-md" [(ngModel)]='lastName' required pattern="[a-zA-Z]+"
+                                #lname="ngModel">
+                            <div [hidden]="lname.valid || lname.pristine" class="alert alert-danger">
+                                <div [hidden]="!lname.hasError('required')"> Last Name is required</div>
+                                <div [hidden]="!lname.hasError('pattern')">Only alphabets allowed</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">Contact Number</label>
+                        <div class="col-md-4">
+                            <input id="textinput" name="contactNumber" type="text" class="form-control input-md" [(ngModel)]='contactNumber' required
+                                pattern="^[7-9]\d*$" minlength="10" maxlength="10" #mobile="ngModel">
+                            <div [hidden]="mobile.valid || mobile.pristine" class="alert alert-danger">
+                                <div [hidden]="!mobile.hasError('minlength')">Contact Number should be 10digit</div>
+                                <div [hidden]="!mobile.hasError('required')"> Contact Number is required </div>
+                                <div [hidden]="!mobile.hasError('pattern')">Contact Number should be only numbers starts from 7 ,8,or 9</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">Mail ID</label>
+                        <div class="col-md-4">
+                            <input id="textinput" name="mailId" type="text" class="form-control input-md" [(ngModel)]='mailId' required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                                #email="ngModel">
+                            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                                <div [hidden]="!email.hasError('required')">Email is required</div>
+                                <div [hidden]="!email.hasError('pattern')">Email format should be
+                                    <small>
+                                        <b>joe@abc.com</b>
+                                    </small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">Designation</label>
+                        <div class="col-md-4">
+                            <input id="textinput" name="designation" type="email" class="form-control input-md" [(ngModel)]='designation' required pattern="[a-zA-Z]+"
+                                #des="ngModel">
+                            <div [hidden]="des.valid || des.pristine" class="alert alert-danger">
+                                <div [hidden]="!des.hasError('required')">Designation is required</div>
+                                <div [hidden]="!des.hasError('pattern')">Only alphabets allowed</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">Home Town</label>
+                        <div class="col-md-4">
+                            <input id="textinput" name="homeTown" type="text" class="form-control input-md" [(ngModel)]='homeTown' required pattern="[a-zA-Z ]+"
+                                #home="ngModel">
+                            <div [hidden]="home.valid || home.pristine" class="alert alert-danger">
+                                <div [hidden]="!home.hasError('required')">Home Town is required</div>
+                                <div [hidden]="!home.hasError('pattern')">Only alphabets allowed</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">College Name</label>
+                        <div class="col-md-4">
+                            <input id="textinput" name="collegeName" type="text" class="form-control input-md" [(ngModel)]='collegeName' required pattern="[a-zA-Z ]+"
+                            #college="ngModel">
+                        <div [hidden]="college.valid || college.pristine" class="alert alert-danger">
+                            <div [hidden]="!college.hasError('required')">College Name is required</div>
+                            <div [hidden]="!college.hasError('pattern')">Only alphabets allowed</div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">Company Name</label>
+                        <div class="col-md-4">
+
+                            <input id="textinput" name="companyName" type="text" class="form-control input-md" [(ngModel)]='companyName' required pattern="[a-zA-Z ]+"
+                            #company="ngModel">
+                        <div [hidden]="company.valid || company.pristine" class="alert alert-danger">
+                            <div [hidden]="!company.hasError('required')">Company Name is required</div>
+                            <div [hidden]="!company.hasError('pattern')">Only alphabets allowed</div>
+                        </div> 
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">Company Location</label>
+                        <div class="col-md-4">
+                            <input id="textinput" name="companyLocation" type="text" class="form-control input-md" [(ngModel)]='companyLocation' required pattern="[a-zA-Z ]+"
+                            #location="ngModel">
+                        <div [hidden]="location.valid || location.pristine" class="alert alert-danger">
+                            <div [hidden]="!location.hasError('required')">Company Location is required</div>
+                            <div [hidden]="!location.hasError('pattern')">Only alphabets allowed</div>
+                        </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-5">
+                            <button class="btn btn-success" [disabled]="!formCtrl.form.valid" (click)="onClickAdd()">
+                                ADD</button>
+
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="panel panel-primary " *ngIf='showView' id="viewForm">
+    <div class=" panel-heading">View Your Details
+    </div>
+    <div class="panel-body">
+        <form #formCtrl="ngForm">
+            <div class="form-group">
+                <label class="col-md-2 "> User ID</label>
+                <div class="col-md-4">
+                    <input id="textinput" name="inputId" type="text" placeholder="Enter Your ID" class="form-control input-md" [(ngModel)]='inputId'
+                        required pattern="^[1-9]\d*$" #viewId="ngModel">
+                    <div [hidden]="viewId.valid || viewId.pristine" class="alert alert-danger">
+
+                        <div [hidden]="!viewId.hasError('required')"> ID is required </div>
+                        <div [hidden]="!viewId.hasError('pattern')">ID should be only numbers starts from 1</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary" [routerLink]="['/app/display',inputId]" [disabled]="!formCtrl.form.valid">view</button>
+
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+
+</div>
+
+<div *ngIf='addedFriend'>{{alert()}}</div>

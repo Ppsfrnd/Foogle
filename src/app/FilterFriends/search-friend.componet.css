@@ -1,0 +1,30 @@
+.filterable {
+    margin-top: 15px;
+}
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+.filterable  {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+}
+#Details{
+    background-color: black;
+    color:white
+}
+tbody{
+    background-color: rgb(223, 217, 217)
+}
+.panel-heading{
+    height:50px;
+}
+.panel-title{
+    font-size: 20px;
+}
+.pull-right{
+    font-size: 15px;
+}
