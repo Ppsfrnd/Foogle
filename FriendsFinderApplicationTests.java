@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class FriendsFinderApplicationTests {
 
-	@Test
+	
 	public void contextLoads() {
 	}
 //hello
