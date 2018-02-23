@@ -34,7 +34,7 @@ public class FriendsFinderApplicationTests {
 	
 	
 	@Test
-	public void testGetToDoById(){
+	public void testDisplayFriend(){
 		Friend friend = new Friend();
 		friend.setId(3);
 		when(friendRepository.displayFriendById(3)).thenReturn(friend);
@@ -44,6 +44,26 @@ public class FriendsFinderApplicationTests {
 		assertEquals(3, result.getId());
 	}
 	
+	@Test
+	public void testSaveFriend(){
+		Friend friend = new Friend("sd","dfsd","hjdfhdf","sdsd","sdf","ssdd","werre","wtrf","ewtfrfg");
+		when(friendRepository.addFriend(friend)).thenReturn(friend);
+		Friend fr=friendService.addFriend(friend);
+		verify(friendRepository).addFriend(friend);
+		assertEquals("sd",fr.getFirstName());
+	
+	}
+	@Test
+	public void testDeleteFriend(){
+		
+		friendService.deleteFriendById(47);
+		 verify(friendRepository, times(1)).deleteFriendById(47);
+		
+	}
+
+	
+	
+	
+	
 
 }
-
